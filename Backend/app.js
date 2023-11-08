@@ -6,10 +6,7 @@ const bookRoutes = require('./routes/book')
 const userRoutes = require('./routes/user')
 
 mongoose
-  .connect(
-    "mongodb+srv://juju:Jujurock30@julie.0bm9ckr.mongodb.net/?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect(process.env.DB_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
